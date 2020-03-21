@@ -1,23 +1,51 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import Home from "../components/home/Home.vue";
+import Login from "../components/auth/Login.vue";
+import Registration from "../components/auth/Registration.vue";
+import NewBooks from "../components/books/NewBooks.vue";
+import BookList from "../components/books/BookList.vue";
+import Book from "../components/books/Book.vue";
+import Orders from "../components/user/Orders.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
-    name: "Home",
+    path: "",
+    name: "home",
     component: Home
   },
   {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
+    path: "/login",
+    name: "login",
+    component: Login
+  },
+  {
+    path: "/registration",
+    name: "registration",
+    component: Registration
+  },
+  {
+    path: "/new",
+    name: "newbooks",
+    component: NewBooks
+  },
+  {
+    path: "/list",
+    name: "booklist",
+    component: BookList
+  },
+  {
+    path: "/book/:id",
+    name: "book",
+    props: true,
+    component: Book
+  },
+  {
+    path: "/orders",
+    name: "orders",
+    component: Orders
   }
 ];
 
